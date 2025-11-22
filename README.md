@@ -1,8 +1,8 @@
-# FundNest 🚀
+# FundsNest 🚀
 
 **Connecting Startups with Investors for Seamless Funding Opportunities**
 
-FundNest is an innovative online platform designed to bridge the gap between student innovators, early-stage startups, and potential investors. It provides a streamlined environment for entrepreneurs to present their ideas and for investors to discover and fund the next big thing.
+FundsNest is an innovative online platform designed to bridge the gap between student innovators, early-stage startups, and potential investors. It provides a streamlined environment for entrepreneurs to present their ideas and for investors to discover and fund the next big thing.
 
 ## 🌟 Key Features
 
