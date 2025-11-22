@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Device-specific styles */
+@layer utilities {
+  /* Mobile-specific styles */
+  .device-adaptive.mobile {
+    --mobile-padding: 1rem;
+    --mobile-font-size: 0.875rem;
+    --mobile-border-radius: 1rem;
+  }
+
+  .device-adaptive.mobile .mobile-only {
+    display: block;
+  }
+
+  .device-adaptive.mobile .tablet-only,
+  .device-adaptive.mobile .desktop-only {
+    display: none;
+  }
+
+  /* Tablet-specific styles */
+  .device-adaptive.tablet {
+    --tablet-padding: 1.5rem;
+    --tablet-font-size: 1rem;
+    --tablet-border-radius: 1.25rem;
+  }
+
+  .device-adaptive.tablet .tablet-only {
+    display: block;
+  }
+
+  .device-adaptive.tablet .mobile-only,
+  .device-adaptive.tablet .desktop-only {
+    display: none;
+  }
+
+  /* Desktop-specific styles */
+  .device-adaptive.desktop {
+    --desktop-padding: 2rem;
+    --desktop-font-size: 1rem;
+    --desktop-border-radius: 1.5rem;
+  }
+
+  .device-adaptive.desktop .desktop-only {
+    display: block;
+  }
+
+  .device-adaptive.desktop .mobile-only,
+  .device-adaptive.desktop .tablet-only {
+    display: none;
+  }
+
+  /* Orientation-specific styles */
+  .device-adaptive.portrait {
+    --orientation-layout: column;
+  }
+
+  .device-adaptive.landscape {
+    --orientation-layout: row;
+  }
+
+  /* Custom responsive breakpoints */
+  .mobile-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .tablet-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .desktop-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  /* Device-specific animations */
+  .mobile-transition {
+    transition: all 0.2s ease-in-out;
+  }
+
+  .tablet-transition {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .desktop-transition {
+    transition: all 0.4s ease-in-out;
+  }
+
+  /* Touch-friendly sizing for mobile */
+  .mobile-touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Tablet-optimized spacing */
+  .tablet-spacing {
+    padding: 1.5rem;
+    margin: 0.75rem;
+  }
+
+  /* Desktop-enhanced visuals */
+  .desktop-enhanced {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(10px);
+  }
+}
+
+/* Responsive typography */
+@media (max-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .responsive-text-xs { font-size: 0.75rem; }
+  .responsive-text-sm { font-size: 0.875rem; }
+  .responsive-text-base { font-size: 1rem; }
+  .responsive-text-lg { font-size: 1.125rem; }
+  .responsive-text-xl { font-size: 1.25rem; }
+  .responsive-text-2xl { font-size: 1.5rem; }
+  .responsive-text-3xl { font-size: 1.875rem; }
+  .responsive-text-4xl { font-size: 2.25rem; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  html {
+    font-size: 15px;
+  }
+  
+  .responsive-text-xs { font-size: 0.75rem; }
+  .responsive-text-sm { font-size: 0.875rem; }
+  .responsive-text-base { font-size: 1rem; }
+  .responsive-text-lg { font-size: 1.125rem; }
+  .responsive-text-xl { font-size: 1.25rem; }
+  .responsive-text-2xl { font-size: 1.5rem; }
+  .responsive-text-3xl { font-size: 1.875rem; }
+  .responsive-text-4xl { font-size: 2.25rem; }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+  
+  .responsive-text-xs { font-size: 0.75rem; }
+  .responsive-text-sm { font-size: 0.875rem; }
+  .responsive-text-base { font-size: 1rem; }
+  .responsive-text-lg { font-size: 1.125rem; }
+  .responsive-text-xl { font-size: 1.25rem; }
+  .responsive-text-2xl { font-size: 1.5rem; }
+  .responsive-text-3xl { font-size: 1.875rem; }
+  .responsive-text-4xl { font-size: 2.25rem; }
+}
+
+/* Custom scrollbars for different devices */
+.device-adaptive.mobile ::-webkit-scrollbar {
+  width: 4px;
+}
+
+.device-adaptive.tablet ::-webkit-scrollbar {
+  width: 6px;
+}
+
+.device-adaptive.desktop ::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Device-specific hover effects */
+@media (hover: hover) {
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .touch-feedback:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .high-dpi-optimized {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
