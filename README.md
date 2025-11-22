@@ -1,25 +1,90 @@
-FundsNest 🚀
-Connecting Startups with Investors for Seamless Funding Opportunities
-FundsNest is an innovative online platform designed to bridge the gap between student innovators, early-stage startups, and potential investors. It provides a streamlined environment for entrepreneurs to present their ideas and for investors to discover and fund the next big thing.
+# FundNest 🚀
 
-## Live Demo
+**Connecting Startups with Investors for Seamless Funding Opportunities**
 
-URL To Visit The Web Application - [FundNest ](https://fundnest12.netlify.app/)
+FundNest is an innovative online platform designed to bridge the gap between student innovators, early-stage startups, and potential investors. It provides a streamlined environment for entrepreneurs to present their ideas and for investors to discover and fund the next big thing.
 
-Key Features (Frontend)
-Dynamic Investor Dashboard: A rich, interactive interface for investors to browse, filter, and manage startup investment opportunities.
+## 🌟 Key Features
 
-Detailed Startup Profiles: Comprehensive and visually appealing profiles for startups to showcase their business ideas, financial needs, and progress updates.
+### For Startups & Students
+- **Detailed Profiles**: Showcase your business ideas, financial needs, and progress with visually appealing profiles.
+- **Student Innovator Hub**: A dedicated section to highlight projects from students and first-time entrepreneurs.
+- **Real-time Communication**: Integrated chat and video calling to connect directly with investors.
+- **Scheduling & Tools**: Built-in meeting scheduler and email integration.
 
-Student & Innovator Hub: A dedicated section to highlight projects from students and first-time entrepreneurs, giving them unique visibility.
+### For Investors
+- **Dynamic Dashboard**: Browse, filter, and manage investment opportunities.
+- **Portfolio Management**: Track your investments and view analytics.
+- **Direct Access**: Connect with founders via video or chat instantly.
 
-Real-time Communication: The frontend is built to integrate secure, real-time communication features like messaging and video conferencing for direct interaction between founders and funders.
+## 🛠️ Tech Stack
 
-Responsive Design: Fully responsive layout ensuring a seamless experience on both mobile and desktop devices.
+**Frontend**
+- React (Vite)
+- Tailwind CSS
+- Lucide React (Icons)
+- Socket.io Client
+- Simple-Peer (WebRTC)
 
+**Backend**
+- Node.js & Express
+- MongoDB (Database)
+- Socket.io (Real-time communication)
+- Mongoose
 
-Frontend: React (with Vite), Tailwind CSS, DaisyUI
+## 🚀 Getting Started
 
-Backend-as-a-Service: Supabase (Database, Authentication, Real-time APIs)
+### Prerequisites
+- Node.js (v14 or higher)
+- MongoDB (Local or Atlas connection string)
 
-Deployment: Netlify / Vercel
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/adnanainul/FundNest.git
+   cd FundNest
+   ```
+
+2. **Install Frontend Dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Install Backend Dependencies**
+   ```bash
+   cd server
+   npm install
+   cd ..
+   ```
+
+4. **Environment Setup**
+   - Create a `.env` file in the root directory.
+   - Add your MongoDB connection string:
+     ```env
+     MONGO_URI=your_mongodb_connection_string
+     ```
+
+### Running the Application
+
+1. **Start the Backend Server**
+   ```bash
+   cd server
+   node index.js
+   ```
+   Server runs on `http://localhost:5001`
+
+2. **Start the Frontend Development Server**
+   Open a new terminal:
+   ```bash
+   npm run dev
+   ```
+   Frontend runs on `http://localhost:5173`
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is licensed under the MIT License.
