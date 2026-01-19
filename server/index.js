@@ -17,10 +17,23 @@ const io = new Server(server, {
 app.use(cors());
 app.use(express.json());
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('MongoDB connection error:', err));
+// Connect to MongoDB with timeout options
+const mongoOptions = {
+    serverSelectionTimeoutMS: 30000, // 30 seconds
+    socketTimeoutMS: 45000, // 45 seconds
+};
+
+mongoose.connect(process.env.MONGO_URI, mongoOptions)
+    .then(() => {
+        console.log('✅ Connected to MongoDB successfully');
+        console.log('Database:', mongoose.connection.db.databaseName);
+    })
+    .catch(err => {
+        console.error('❌ MongoDB connection error:', err.message);
+        console.error('Full error:', err);
+        console.error('MONGO_URI exists:', !!process.env.MONGO_URI);
+        console.error('MONGO_URI format check:', process.env.MONGO_URI?.substring(0, 20) + '...');
+    });
 
 // Health Check Route
 app.get('/', (req, res) => {
