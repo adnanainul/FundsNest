@@ -4,13 +4,7 @@
 
 FundsNest is an innovative online platform designed to bridge the gap between student innovators, early-stage startups, and potential investors. It provides a streamlined environment for entrepreneurs to present their ideas and for investors to discover and fund the next big thing.
 
-## 🌐 Live Deployment
-
-**Frontend:** [https://fundsnest-2026.vercel.app](https://fundsnest-2026.vercel.app)  
-**Backend API:** [https://fundsnest-backend.onrender.com](https://fundsnest-backend.onrender.com)  
-**Database:** MongoDB Atlas (Cloud)
-
-## 🌟 Key Features
+##  Key Features
 
 ### For Startups & Students
 - **Detailed Profiles**: Showcase your business ideas, financial needs, and progress with visually appealing profiles.
