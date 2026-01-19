@@ -22,6 +22,11 @@ mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
 
+// Health Check Route
+app.get('/', (req, res) => {
+    res.send('FundNest Backend is Running');
+});
+
 // Middleware to attach io to req for real-time events
 app.use((req, res, next) => {
     req.io = io;

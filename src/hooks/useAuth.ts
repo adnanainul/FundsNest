@@ -49,6 +49,12 @@ export function useAuth() {
 
       return { error: null }
     } catch (err: any) {
+      console.error('Login Error:', {
+        message: err.message,
+        response: err.response?.data,
+        status: err.response?.status,
+        url: `${API_URL}/login`
+      });
       return { error: err.response?.data?.error || err.message }
     }
   }
@@ -69,6 +75,12 @@ export function useAuth() {
 
       return { error: null }
     } catch (err: any) {
+      console.error('Login Error:', {
+        message: err.message,
+        response: err.response?.data,
+        status: err.response?.status,
+        url: `${API_URL}/login`
+      });
       return { error: err.response?.data?.error || err.message }
     }
   }
