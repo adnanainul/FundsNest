@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { Save, Plus, Trash2, Building2, DollarSign, TrendingUp } from 'lucide-react';
 import axios from 'axios';
+import { endpoints } from '../config';
 import { ToastContainer, ToastType } from './Toast';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 
@@ -56,10 +57,10 @@ export function InvestorProfilePage() {
 
     const fetchProfile = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:5001/api/investor/profile/${user?.id}`);
+            const { data } = await axios.get(`${endpoints.investor}/profile/${user?.id}`);
             if (data) {
                 // Fetch analytics separately
-                const analyticsRes = await axios.get(`http://localhost:5001/api/investor/${user?.id}/risk`);
+                const analyticsRes = await axios.get(`${endpoints.investor}/${user?.id}/risk`);
                 setProfile({ ...data, analytics: analyticsRes.data });
             }
         } catch (error) {
@@ -73,7 +74,7 @@ export function InvestorProfilePage() {
     const handleSave = async () => {
         setSaving(true);
         try {
-            await axios.post('http://localhost:5001/api/investor/profile', {
+            await axios.post(`${endpoints.investor}/profile`, {
                 userId: user?.id,
                 ...profile
             });

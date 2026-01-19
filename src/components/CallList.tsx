@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Video, Calendar, Clock, User } from 'lucide-react';
 import axios from 'axios';
 import { useAuth } from '../hooks/useAuth';
+import { endpoints } from '../config';
 
 interface Call {
     _id: string;
@@ -35,7 +36,7 @@ export function CallList() {
 
     const fetchCalls = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:5001/api/calls/user/${user?.id}`);
+            const { data } = await axios.get(`${endpoints.calls}/user/${user?.id}`);
             setCalls(data);
         } catch (error) {
             console.error('Error fetching calls:', error);

@@ -80,7 +80,9 @@ const mockIdeas = [
   }
 ]
 
-const API_URL = 'http://localhost:5001/api/ideas';
+import { endpoints } from '../config';
+
+const API_URL = endpoints.ideas;
 
 export function StudentIdeas() {
   const [categoryFilter, setCategoryFilter] = useState('all')
@@ -215,7 +217,7 @@ export function StudentIdeas() {
     }
 
     try {
-      await axios.post('http://localhost:5001/api/actions/invest', {
+      await axios.post(`${endpoints.actions}/invest`, {
         amount,
         startupId: currentInvestIdea.id, // Mapping for mock backend
         startupName: currentInvestIdea.title, // Mapping for mock backend

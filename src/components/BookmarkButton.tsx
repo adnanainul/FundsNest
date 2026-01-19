@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Bookmark } from 'lucide-react'
 import axios from 'axios'
 
+import { endpoints } from '../config';
+
 interface BookmarkButtonProps {
     itemId: string
     itemType: 'idea' | 'startup' | 'investor'
@@ -9,7 +11,7 @@ interface BookmarkButtonProps {
     onToggle?: (bookmarked: boolean) => void
 }
 
-const API_URL = 'http://localhost:5001/api/bookmarks';
+const API_URL = endpoints.bookmarks;
 
 export function BookmarkButton({ itemId, itemType, userId = 'demo-user', onToggle }: BookmarkButtonProps) {
     const [bookmarked, setBookmarked] = useState(false)
@@ -69,8 +71,8 @@ export function BookmarkButton({ itemId, itemType, userId = 'demo-user', onToggl
             onClick={handleToggle}
             disabled={loading}
             className={`p-2 rounded-lg transition-all duration-200 ${bookmarked
-                    ? 'bg-yellow-100 text-yellow-600 hover:bg-yellow-200'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                ? 'bg-yellow-100 text-yellow-600 hover:bg-yellow-200'
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                 } ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
             title={bookmarked ? 'Remove bookmark' : 'Add bookmark'}
         >

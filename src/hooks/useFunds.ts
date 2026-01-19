@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Fund } from '../types'
 
-const API_URL = 'http://localhost:5001/api/funds'
+import { endpoints } from '../config'
+
+const API_URL = endpoints.funds
 
 export function useFunds() {
   const [funds, setFunds] = useState<Fund[]>([])

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Bell, X } from 'lucide-react'
 import { io, Socket } from 'socket.io-client'
 
+import config from '../config';
+
 interface Notification {
     id: string
     type: 'info' | 'success' | 'warning' | 'error'
@@ -11,7 +13,7 @@ interface Notification {
     read: boolean
 }
 
-const SOCKET_URL = 'http://localhost:5001';
+const SOCKET_URL = config.socketUrl;
 
 export function NotificationCenter() {
     const [notifications, setNotifications] = useState<Notification[]>([])

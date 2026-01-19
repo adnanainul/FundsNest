@@ -5,7 +5,9 @@ import { Pagination } from './Pagination'
 import { ToastContainer, ToastType } from './Toast'
 import axios from 'axios'
 
-const API_URL = 'http://localhost:5001/api/transactions';
+import { endpoints } from '../config';
+
+const API_URL = endpoints.transactions;
 
 export function Transactions() {
   const [transactions, setTransactions] = useState<any[]>([])
@@ -162,8 +164,8 @@ export function Transactions() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
                       <div className={`w-10 h-10 rounded-full flex items-center justify-center mr-4 ${transaction.type === 'buy'
-                          ? 'bg-green-100 text-green-600'
-                          : 'bg-red-100 text-red-600'
+                        ? 'bg-green-100 text-green-600'
+                        : 'bg-red-100 text-red-600'
                         }`}>
                         {transaction.type === 'buy' ? (
                           <ArrowDownLeft className="h-5 w-5" />

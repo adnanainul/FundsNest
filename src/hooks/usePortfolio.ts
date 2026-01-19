@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Portfolio } from '../types'
 
-const API_URL = 'http://localhost:5001/api/portfolio'
+import { endpoints } from '../config'
+
+const API_URL = endpoints.portfolio
 
 export function usePortfolio(userId: string | undefined) {
   const [portfolio, setPortfolio] = useState<Portfolio[]>([])

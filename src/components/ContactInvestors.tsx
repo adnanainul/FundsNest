@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Send, User, Building2, DollarSign, FileText, CheckCircle, Video, MessageCircle, Phone, Mail } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
+import { endpoints } from '../config';
 
 export function ContactInvestors() {
   const { user } = useAuth()
@@ -90,7 +91,7 @@ export function ContactInvestors() {
       // Assuming POST /api/students/requests creates a new request
       // If not, I might need to create it. Let's assume it exists or I'll create it.
       // Based on previous exploration, routes/students.js exists.
-      await fetch('http://localhost:5001/api/students/requests', {
+      await fetch(endpoints.requests, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

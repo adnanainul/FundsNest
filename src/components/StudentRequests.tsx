@@ -37,7 +37,9 @@ export interface StudentRequest {
   submittedDate: string;
 }
 
-const API_URL = 'http://localhost:5001/api/students/requests';
+import config, { endpoints } from '../config';
+
+const API_URL = endpoints.requests;
 
 export function StudentRequests() {
   const [requests, setRequests] = useState<StudentRequest[]>([])
@@ -87,7 +89,7 @@ export function StudentRequests() {
 
   // Socket.io for real-time updates
   useEffect(() => {
-    const socket: Socket = io('http://localhost:5001')
+    const socket: Socket = io(config.socketUrl)
 
     socket.on('request_status_updated', (data) => {
       addToast(`Request status updated to: ${data.status}`, 'success')

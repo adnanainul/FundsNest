@@ -4,7 +4,9 @@ import { useAuth } from '../hooks/useAuth'
 import { Video, X, Check } from 'lucide-react'
 import { CommunicationModal, Participant } from './CommunicationModal'
 
-const SOCKET_URL = 'http://localhost:5001'
+import config from '../config'
+
+const SOCKET_URL = config.socketUrl
 
 export const CallManager: React.FC = () => {
     const { user } = useAuth()

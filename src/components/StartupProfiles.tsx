@@ -6,6 +6,7 @@ import { LoadingSpinner, SkeletonCard } from './LoadingSpinner'
 import { Pagination } from './Pagination'
 import { ToastContainer, ToastType } from './Toast'
 import axios from 'axios'
+import { endpoints } from '../config'
 
 // Enhanced mock startup data with image galleries
 interface Investor {
@@ -399,7 +400,7 @@ export function StartupProfiles() {
   const fetchStartups = async () => {
     setLoading(true)
     try {
-      const { data } = await axios.get('http://localhost:5001/api/startups', {
+      const { data } = await axios.get(endpoints.startups, {
         params: {
           industry: industryFilter !== 'all' ? industryFilter : undefined,
           stage: stageFilter !== 'all' ? stageFilter : undefined,
@@ -504,7 +505,7 @@ export function StartupProfiles() {
     }
 
     try {
-      await axios.post('http://localhost:5001/api/actions/invest', {
+      await axios.post(`${endpoints.actions}/invest`, {
         amount: amount,
         startupId: currentInvestStartup.id,
         startupName: currentInvestStartup.name,
@@ -538,7 +539,7 @@ export function StartupProfiles() {
     }
 
     try {
-      const response = await axios.post('http://localhost:5001/api/startups', {
+      const response = await axios.post(endpoints.startups, {
         name: newStartup.name,
         industry: newStartup.industry,
         tagline: newStartup.tagline,

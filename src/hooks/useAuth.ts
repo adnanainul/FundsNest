@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { User } from '../types'
 
-const API_URL = 'http://localhost:5001/api/auth'
+import { endpoints } from '../config'
+
+const API_URL = endpoints.auth
 
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null)

@@ -4,6 +4,8 @@ import { TrendingUp, DollarSign, Building2, Lightbulb } from 'lucide-react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { CallList } from './CallList'
 
+import { endpoints } from '../config';
+
 export function Overview() {
   const { user } = useAuth()
   const [profile, setProfile] = React.useState<any>(null)
@@ -13,7 +15,7 @@ export function Overview() {
     const fetchProfile = async () => {
       if (!user) return
       try {
-        const response = await fetch(`http://localhost:5001/api/investor/profile/${user.id}`)
+        const response = await fetch(`${endpoints.investor}/profile/${user.id}`)
         const data = await response.json()
         setProfile(data)
       } catch (error) {
@@ -87,14 +89,14 @@ export function Overview() {
             <div key={index} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
               <div className="flex items-center justify-between mb-4">
                 <div className={`p-3 rounded-lg ${stat.changeType === 'positive' ? 'bg-green-50 text-green-600' :
-                    stat.changeType === 'negative' ? 'bg-red-50 text-red-600' :
-                      'bg-blue-50 text-blue-600'
+                  stat.changeType === 'negative' ? 'bg-red-50 text-red-600' :
+                    'bg-blue-50 text-blue-600'
                   }`}>
                   <Icon className="h-6 w-6" />
                 </div>
                 <span className={`text-sm font-medium ${stat.changeType === 'positive' ? 'text-green-600' :
-                    stat.changeType === 'negative' ? 'text-red-600' :
-                      'text-gray-600'
+                  stat.changeType === 'negative' ? 'text-red-600' :
+                    'text-gray-600'
                   }`}>
                   {stat.change}
                 </span>

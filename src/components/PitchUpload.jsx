@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Upload, FileText, Video } from 'lucide-react';
 
+import { endpoints } from '../config';
+
 const PitchUpload = ({ onAnalysisComplete }) => {
     const [content, setContent] = useState('');
     const [loading, setLoading] = useState(false);
@@ -9,7 +11,7 @@ const PitchUpload = ({ onAnalysisComplete }) => {
     const handleAnalyze = async () => {
         setLoading(true);
         try {
-            const res = await axios.post('http://localhost:5001/api/pitch/analyze', { content });
+            const res = await axios.post(`${endpoints.pitch}/analyze`, { content });
             onAnalysisComplete(res.data);
         } catch (err) {
             console.error(err);

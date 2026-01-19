@@ -4,8 +4,9 @@ import { useAuth } from '../hooks/useAuth'
 import { Video, MessageCircle, Phone, Mail, X, Send, Mic, MicOff, Camera, CameraOff, Presentation, Timer, ThumbsUp, ThumbsDown } from 'lucide-react'
 import { io, Socket } from 'socket.io-client'
 import axios from 'axios'
+import config, { endpoints } from '../config'
 
-const API_URL = 'http://localhost:5001/api/messages'
+const API_URL = endpoints.messages
 
 type Mode = 'video' | 'chat' | 'schedule' | 'email'
 
@@ -86,7 +87,7 @@ export const CommunicationModal: React.FC<CommunicationModalProps> = ({
     fetchMessages()
 
     // Initialize Socket.io
-    socketRef.current = io('http://localhost:5001')
+    socketRef.current = io(config.socketUrl)
     socketRef.current.emit('join_room', roomId)
 
     // If we are the initiator and in video mode, send the invite
@@ -393,7 +394,7 @@ export const CommunicationModal: React.FC<CommunicationModalProps> = ({
     setSending(true)
     try {
       // 1. Log to backend
-      await axios.post('http://localhost:5001/api/actions/email', {
+      await axios.post(`${endpoints.actions}/email`, {
         to: participant.email || 'test@example.com',
         subject: emailSubject,
         body: emailBody
@@ -422,7 +423,7 @@ export const CommunicationModal: React.FC<CommunicationModalProps> = ({
     setSending(true)
     try {
       // 1. Log to backend
-      await axios.post('http://localhost:5001/api/actions/schedule', {
+      await axios.post(`${endpoints.actions}/schedule`, {
         date: scheduleDate,
         notes: scheduleNotes,
         withUser: participant.name

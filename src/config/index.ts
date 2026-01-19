@@ -27,6 +27,10 @@ export const endpoints = {
     portfolio: `${API_BASE_URL}/api/portfolio`,
     messages: `${API_BASE_URL}/api/messages`,
     actions: `${API_BASE_URL}/api/actions`,
+    calls: `${API_BASE_URL}/api/calls`,
+    pitch: `${API_BASE_URL}/api/pitch`,
+    investor: `${API_BASE_URL}/api/investor`,
+    blockchain: `${API_BASE_URL}/api/blockchain`,
 };
 
 export default config;

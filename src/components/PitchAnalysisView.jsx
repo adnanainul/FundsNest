@@ -4,6 +4,7 @@ import AnalysisResult from './AnalysisResult';
 import InvestorMatch from './InvestorMatch';
 import BlockchainBadge from './BlockchainBadge';
 import axios from 'axios';
+import { endpoints } from '../config';
 
 const PitchAnalysisView = () => {
     const [analysis, setAnalysis] = useState(null);
@@ -17,7 +18,7 @@ const PitchAnalysisView = () => {
         try {
             // Mock user ID for demo
             const userId = "65d4c3b2e8b1a9c4d8f7e6a5";
-            const res = await axios.post('http://localhost:5001/api/pitch/submit', {
+            const res = await axios.post(`${endpoints.pitch}/submit`, {
                 userId,
                 content: "Demo Pitch Content",
                 type: "text",
@@ -27,7 +28,7 @@ const PitchAnalysisView = () => {
             setPitchId(res.data.pitch._id);
 
             // Fetch blockchain record
-            const chainRes = await axios.get('http://localhost:5001/api/blockchain');
+            const chainRes = await axios.get(endpoints.blockchain);
             if (chainRes.data.length > 0) {
                 setBlockchainHash(chainRes.data[0].hash);
             }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Calendar, Clock, Video } from 'lucide-react';
 import axios from 'axios';
+import { endpoints } from '../config';
 import { useAuth } from '../hooks/useAuth';
 
 interface ScheduleCallModalProps {
@@ -31,7 +32,7 @@ export function ScheduleCallModal({ isOpen, onClose, studentId, studentEmail, st
             // Use studentId if available, otherwise fallback to email
             const participant = studentId || studentEmail;
 
-            await axios.post('http://localhost:5001/api/calls', {
+            await axios.post(endpoints.calls, {
                 participants: [user?.id, participant],
                 scheduledAt,
                 topic,
