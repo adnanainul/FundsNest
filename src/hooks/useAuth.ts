@@ -35,7 +35,7 @@ export function useAuth() {
 
   const signIn = async (email: string, password: string, type: 'investor' | 'student' | 'startup') => {
     try {
-      const { data } = await axios.post(`${API_URL}/login`, { email, password })
+      const { data } = await axios.post(API_URL.login, { email, password })
 
       localStorage.setItem('token', data.token)
       localStorage.setItem('user', JSON.stringify(data.user))
@@ -53,7 +53,7 @@ export function useAuth() {
         message: err.message,
         response: err.response?.data,
         status: err.response?.status,
-        url: `${API_URL}/login`
+        url: API_URL.login
       });
       return { error: err.response?.data?.error || err.message }
     }
@@ -61,7 +61,7 @@ export function useAuth() {
 
   const signUp = async (email: string, password: string, type: 'investor' | 'student' | 'startup') => {
     try {
-      const { data } = await axios.post(`${API_URL}/signup`, { email, password, type })
+      const { data } = await axios.post(API_URL.signup, { email, password, type })
 
       localStorage.setItem('token', data.token)
       localStorage.setItem('user', JSON.stringify(data.user))
@@ -75,11 +75,11 @@ export function useAuth() {
 
       return { error: null }
     } catch (err: any) {
-      console.error('Login Error:', {
+      console.error('Signup Error:', {
         message: err.message,
         response: err.response?.data,
         status: err.response?.status,
-        url: `${API_URL}/login`
+        url: API_URL.signup
       });
       return { error: err.response?.data?.error || err.message }
     }
